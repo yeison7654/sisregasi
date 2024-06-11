@@ -1,5 +1,5 @@
 <?php 
-	const BASE_URL = "http://localhost/basesis";
+	const BASE_URL = "http://localhost/sisregasiy";
 	//Zona horaria
 	date_default_timezone_set('America/Guatemala');
 	//Datos de conexión a Base de Datos
