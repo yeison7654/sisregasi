@@ -17,7 +17,7 @@
   class="light-style layout-menu-fixed"
   dir="ltr"
   data-theme="theme-default"
-  data-assets-path="<?= base_url() ?>/Assets/"
+  data-assets-path="../assets/"
   data-template="vertical-menu-template-free"
 >
 <head>
