@@ -13,11 +13,11 @@
  -->
 <!-- beautify ignore:start -->
 <html
-  lang="en"
+  lang="es"
   class="light-style layout-menu-fixed"
   dir="ltr"
   data-theme="theme-default"
-  data-assets-path="../assets/"
+  data-assets-path="../Assets/"
   data-template="vertical-menu-template-free"
 >
 <head>
@@ -29,7 +29,7 @@
     <meta name="description" content="" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="<?= base_url() ?>/Assets/images/favicon/favicon.ico" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />

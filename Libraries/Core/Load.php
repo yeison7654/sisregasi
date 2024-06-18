@@ -9,10 +9,10 @@
 		{
 			$controller->{$method}($params);
 		}else{
-			require_once("Controllers/Error.php");
+			require_once("Controllers/Errors.php");
 		}
 	}else{
-		require_once("Controllers/Error.php");
+		require_once("Controllers/Errors.php");
 	}
 
  ?>
