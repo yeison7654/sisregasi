@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-06-2024 a las 15:37:59
+-- Tiempo de generación: 18-06-2024 a las 16:36:58
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -67,7 +67,6 @@ CREATE TABLE `personal` (
   `celular` char(10) NOT NULL,
   `codigopersonal` char(8) NOT NULL,
   `idOcupacion` int(11) NOT NULL,
-  `idUsuario` int(11) NOT NULL,
   `estado` varchar(20) NOT NULL DEFAULT 'Activo'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -108,7 +107,8 @@ CREATE TABLE `usuario` (
   `usuario` varchar(9) NOT NULL,
   `passwrd` text NOT NULL,
   `idRol` int(11) NOT NULL,
-  `estado` varchar(20) NOT NULL DEFAULT 'Activo'
+  `estado` varchar(20) NOT NULL DEFAULT 'Activo',
+  `idPersonal` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -135,8 +135,7 @@ ALTER TABLE `personal`
   ADD PRIMARY KEY (`idPersonal`),
   ADD UNIQUE KEY `codigopersonal` (`codigopersonal`),
   ADD KEY `idTipoPersonal` (`idTipoPersonal`),
-  ADD KEY `idOcupacion` (`idOcupacion`),
-  ADD KEY `idUsuario` (`idUsuario`);
+  ADD KEY `idOcupacion` (`idOcupacion`);
 
 --
 -- Indices de la tabla `rol`
@@ -156,7 +155,8 @@ ALTER TABLE `tipopersonal`
 ALTER TABLE `usuario`
   ADD PRIMARY KEY (`idUsuario`),
   ADD UNIQUE KEY `usuario` (`usuario`),
-  ADD KEY `idRol` (`idRol`);
+  ADD KEY `idRol` (`idRol`),
+  ADD KEY `FK_usuario_personal` (`idPersonal`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -213,13 +213,13 @@ ALTER TABLE `asistencia`
 --
 ALTER TABLE `personal`
   ADD CONSTRAINT `personal_ibfk_1` FOREIGN KEY (`idTipoPersonal`) REFERENCES `tipopersonal` (`idTipoPersonal`),
-  ADD CONSTRAINT `personal_ibfk_2` FOREIGN KEY (`idOcupacion`) REFERENCES `ocupacion` (`idOcupacion`),
-  ADD CONSTRAINT `personal_ibfk_3` FOREIGN KEY (`idUsuario`) REFERENCES `usuario` (`idUsuario`);
+  ADD CONSTRAINT `personal_ibfk_2` FOREIGN KEY (`idOcupacion`) REFERENCES `ocupacion` (`idOcupacion`);
 
 --
 -- Filtros para la tabla `usuario`
 --
 ALTER TABLE `usuario`
+  ADD CONSTRAINT `FK_usuario_personal` FOREIGN KEY (`idPersonal`) REFERENCES `personal` (`idPersonal`),
   ADD CONSTRAINT `usuario_ibfk_1` FOREIGN KEY (`idRol`) REFERENCES `rol` (`idRol`);
 COMMIT;
 
