@@ -11,10 +11,10 @@ headerAdmin($data);
                 <small class="text-muted float-end">Default label</small>
             </div>
             <div class="card-body">
-                <form>
+                <form id="formSave">
                     <div class="mb-3">
                         <label class="form-label" for="basic-default-fullname">Nombres</label>
-                        <input type="text" class="form-control" id="basic-default-fullname" placeholder="John Doe">
+                        <input type="text" name="nombres" class="form-control" id="basic-default-fullname" placeholder="John Doe">
                     </div>
                     <div class="mb-3">
                         <label class="form-label" for="basic-default-fullname">Apellidos</label>
