@@ -4,7 +4,7 @@
 	date_default_timezone_set('America/Guatemala');
 	//Datos de conexión a Base de Datos
 	const DB_HOST = "localhost";
-	const DB_NAME = "";
+	const DB_NAME = "sisregasi";
 	const DB_USER = "root";
 	const DB_PASSWORD = "";
 	const DB_CHARSET = "utf8";

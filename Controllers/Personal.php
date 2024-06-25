@@ -18,6 +18,23 @@ class Personal extends Controllers
     }
     public function savePersonal()
     {
-        dep($_POST);
+        $nombre = $_POST["txtName"];
+        $apellidos = $_POST["txtFullName"];
+        $estadocivil = $_POST["cbxEstadoCivil"];
+        $fechan = $_POST["txtFechaNacimiento"];
+        $tipopersonal = $_POST["cbxTipoPersonal"];
+        $celular = $_POST["txtPhone"];
+        $codigo = $_POST["txtCodigo"];
+        $ocupacion = $_POST["cbxOcupacion"];
+        $request = $this->model->insertPersonal(
+            $nombre,
+            $apellidos,
+            $fechan,
+            $tipopersonal,
+            $celular,
+            $codigo,
+            $ocupacion
+        );
+        echo $request;
     }
 }
