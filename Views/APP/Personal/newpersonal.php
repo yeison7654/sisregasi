@@ -3,7 +3,7 @@ headerAdmin($data);
 ?>
 <!-- Content -->
 <div class="container-xxl flex-grow-1 container-p-y">
-    <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Forms/</span> Vertical Layouts</h4>
+    <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Persona/</span> Nuevo Personal</h4>
     <div class="col-xl">
         <div class="card mb-4">
             <div class="card-header d-flex justify-content-between align-items-center">
@@ -23,10 +23,11 @@ headerAdmin($data);
                     <div class="mb-3">
                         <label for="cbxEstadoCivil" class="form-label">Estado Civil</label>
                         <select name="cbxEstadoCivil" id="cbxEstadoCivil" class="form-select">
-                            <option>Default select</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
+                            <option selected disabled>Selecciona un elemento</option>
+                            <option value="Soltero/a">Soltero/a</option>
+                            <option value="Casado/a">Casado/a</option>
+                            <option value="Viudo/a">Viudo/a</option>
+                            <option value="Divorsiado/a">Divorsiado/a</option>
                         </select>
                     </div>
                     <div class="mb-3">
@@ -36,10 +37,14 @@ headerAdmin($data);
                     <div class="mb-3">
                         <label for="cbxTipoPersonal" class="form-label">Tipo Personal</label>
                         <select name="cbxTipoPersonal" id="cbxTipoPersonal" class="form-select">
-                            <option>Default select</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
+                            <option selected disabled>Selecciona un elemento</option>
+                            <?php
+                            $cadena = "";
+                            foreach ($data["page_tipopersonal"]  as $key => $value) {
+                                $cadena .= '<option value="' . $value['idTipoPersonal'] . '">' . $value['tipopersonal'] . '</option>';
+                            }
+                            echo $cadena;
+                            ?>
                         </select>
                     </div>
                     <div class="mb-3">
@@ -53,10 +58,15 @@ headerAdmin($data);
                     <div class="mb-3">
                         <label for="cbxOcupacion" class="form-label">Ocupacion</label>
                         <select name="cbxOcupacion" id="cbxOcupacion" class="form-select">
-                            <option>Default select</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
+                            <option selected disabled>Selecciona un elemento</option>
+                            <?php
+                            $cadena = "";
+                            foreach ($data['page_ocupacion'] as $key => $value) {
+                                $cadena .= '<option value="' . $value['idOcupacion'] . '">' . $value['ocupacion'] . '</option>';
+                            }
+                            echo $cadena;
+                            ?>
+
                         </select>
                     </div>
                     <button type="submit" class="btn btn-primary">Registrar</button>
