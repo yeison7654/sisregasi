@@ -64,6 +64,9 @@ function strClean($strCadena)
     $string = str_ireplace("[", "", $string);
     $string = str_ireplace("]", "", $string);
     $string = str_ireplace("==", "", $string);
+    $string = str_ireplace("SELECT", "", $string);
+    $string = str_ireplace("OR", "", $string);
+    $string = str_ireplace("FROM", "", $string);
     return $string;
 }
 //Genera una contraseña de 10 caracteres
@@ -95,4 +98,11 @@ function formatMoney($cantidad)
 {
     $cantidad = number_format($cantidad, 2, SPD, SPM);
     return $cantidad;
+}
+//Preparamos la cadena en formato json
+function json($arrData)
+{
+    $json = json_encode($arrData, JSON_UNESCAPED_UNICODE);
+    echo $json;
+    die();
 }

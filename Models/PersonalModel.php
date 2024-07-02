@@ -8,6 +8,7 @@ class PersonalModel extends Mysql
     public function insertPersonal(
          $nombre,
          $apellidos,
+         $estadocivil,
          $fechaN,
          $tipoPer,
          $phone,
@@ -16,14 +17,15 @@ class PersonalModel extends Mysql
     ) {
         
         $sql = "INSERT INTO `personal` 
-        (`nombres`, `apellidos` , `fechanacimiento`, 
+        (`nombres`, `apellidos`, `estadocivil` , `fechanacimiento`, 
         `idTipoPersonal`, `celular`, `codigopersonal`, `idOcupacion`) 
         VALUES 
-        (?, ?, ?, ?, ?, ?, ?);";
+        (?, ?, ?, ?, ?, ?, ?, ?);";
        
         $arrData = array(
             $nombre,
             $apellidos,
+            $estadocivil,
             $fechaN,
             $tipoPer,
             $phone,
