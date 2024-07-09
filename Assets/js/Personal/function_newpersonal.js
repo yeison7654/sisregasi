@@ -4,6 +4,7 @@ document.addEventListener(
         //damos un tiempo de carga para que se añadan los eventos a los botones
         setTimeout(() => {
             saveData()
+            btnCloseAlert()
         }, 1000);
     },
     false
@@ -39,6 +40,7 @@ function saveData() {
                                 msj.classList.replace("alert-danger", response.type);
                             }
                             msjText.innerHTML = response.text
+                            formSave.reset();
                         } else {
                             if (msj.classList.contains("alert-success")) {
                                 msj.classList.replace("alert-success", response.type);
@@ -52,4 +54,11 @@ function saveData() {
             }
         });
     }
+}
+function btnCloseAlert() {
+    let btnClose = document.querySelector(".btn-close");
+    btnClose.addEventListener("click", () => {
+        let msj = document.querySelector("#alert");
+        msj.classList.add("d-none")
+    })
 }

@@ -6,6 +6,7 @@
   <script src="<?= base_url() ?>/Assets/vendor/libs/popper/popper.js"></script>
   <script src="<?= base_url() ?>/Assets/vendor/js/bootstrap.js"></script>
   <script src="<?= base_url() ?>/Assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+  <script src="<?= base_url() ?>/Assets/js/datatables.min.js"></script>
 
   <script src="<?= base_url() ?>/Assets/vendor/js/menu.js"></script>
   <!-- endbuild -->

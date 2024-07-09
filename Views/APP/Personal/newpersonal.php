@@ -11,7 +11,7 @@ headerAdmin($data);
                 <small class="text-muted float-end">Formulario de registro de personal</small>
             </div>
             <div class="px-3">
-                <div id="alert" class="alert alert-success alert-dismissible " role="alert">
+                <div id="alert" class="alert alert-success alert-dismissible d-none" role="alert">
                     <p class="alert-text">contenido de la alerta</p>
                     <button type="button" class="btn-close"></button>
                 </div>

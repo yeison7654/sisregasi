@@ -97,6 +97,36 @@ class Personal extends Controllers
             json($data);
         }
     }
+    public function getPersonal()
+    {
+        $request = $this->model->selectPersonal();
+        $arrData = null;
+        $cont = 1;
+        foreach ($request as $key => $value) {
+            if ($value["estado"] == "Activo") {
+                $estado = '<span class="badge bg-label-primary me-1">Activo</span>';
+            } else {
+                $estado = '<span class="badge bg-label-danger me-1">Inactivo</span>';
+            }
+            $arrData[$key] = [
+                "numero" => $cont,
+                "nombre" => $value["nombres"],
+                "apellidos" => $value["apellidos"],
+                "estado" => $estado,
+                "acciones" => ' <div class="dropdown">
+                                    <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                        <i class="bx bx-dots-vertical-rounded"></i>
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i> Edit</a>
+                                        <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-trash me-1"></i> Delete</a>
+                                    </div>
+                                </div>'
+            ];
+            $cont++;
+        }
+        json($arrData);
+    }
     /**
      * Fin funciones de las vistas
      */

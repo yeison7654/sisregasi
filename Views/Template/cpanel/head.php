@@ -43,7 +43,7 @@
     <link rel="stylesheet" href="<?= base_url() ?>/Assets/vendor/css/core.css" class="template-customizer-core-css" />
     <link rel="stylesheet" href="<?= base_url() ?>/Assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
     <link rel="stylesheet" href="<?= base_url() ?>/Assets/css/demo.css" />
-
+    <link rel="stylesheet" href="<?= base_url() ?>/Assets/css/datatables.min.css">
     <!-- Vendors CSS -->
     <link rel="stylesheet" href="<?= base_url() ?>/Assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
 
@@ -72,8 +72,8 @@
         <div class="layout-page">
           <!-- Navbar -->        
           <?php
-            require_once "./Views/Template/cpanel/navbar.php";
-            ?>
+          require_once "./Views/Template/cpanel/navbar.php";
+          ?>
           <!-- / Navbar -->
           <!-- Content wrapper -->
             <div class="content-wrapper">
