@@ -11,6 +11,9 @@ document.addEventListener(
     false
 );
 
+document.addEventListener("click", () => {
+    deleteData();
+})
 //End funciones de load
 function listaData() {
     tableData = $("#table").DataTable({
@@ -69,11 +72,20 @@ function deleteData() {
                         fetch(url, config)
                             .then((Response) => Response.json())
                             .then((response) => {
-                                Swal.fire({
-                                    title: "Deleted!",
-                                    text: "Your file has been deleted.",
-                                    icon: "success"
-                                });
+                                if (response.status) {
+                                    Swal.fire({
+                                        title: response.title,
+                                        text: response.text,
+                                        icon: response.type
+                                    });
+                                    tableData.ajax.reload(null, false);
+                                } else {
+                                    Swal.fire({
+                                        title: response.title,
+                                        text: response.text,
+                                        icon: response.type
+                                    });
+                                }
                             })
                     } catch (error) {
                         console.log("Ocurrio un error inesperado " + error)
