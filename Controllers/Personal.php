@@ -134,9 +134,9 @@ class Personal extends Controllers
                 "title" => "Ocurrio un error inesperado",
                 "text" => "No se encontro el metodo POST",
                 "status" => false,
-                "type" => "alert-danger"
+                "type" => "danger"
             );
-            json($data);           
+            json($data);
         }
         $id = strClean($_POST["idPersonal"]);
         if ($id == "") {
@@ -144,7 +144,7 @@ class Personal extends Controllers
                 "title" => "Ocurrio un error inesperado",
                 "text" => "Complete los campos obligatorios",
                 "status" => false,
-                "type" => "alert-danger"
+                "type" => "danger"
             );
             json($data);
         }
@@ -155,6 +155,14 @@ class Personal extends Controllers
                 "text" => "Registro eliminado correctamente",
                 "status" => true,
                 "type" => "success"
+            );
+            json($data);
+        } else {
+            $data = array(
+                "title" => "Ocurrio un error inesperado",
+                "text" => "No se completo la accion",
+                "status" => false,
+                "type" => "dannger"
             );
             json($data);
         }
