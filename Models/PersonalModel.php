@@ -41,4 +41,10 @@ class PersonalModel extends Mysql
         $request = $this->select_all($sql);
         return $request;
     }
+    public function deletePersonal(int $id)
+    {
+        $sql = "DELETE FROM personal WHERE idPersonal={$id}";
+        $request = $this->delete($sql);
+        return $request;
+    }
 }

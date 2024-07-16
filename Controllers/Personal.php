@@ -118,14 +118,46 @@ class Personal extends Controllers
                                         <i class="bx bx-dots-vertical-rounded"></i>
                                     </button>
                                     <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i> Edit</a>
-                                        <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-trash me-1"></i> Delete</a>
+                                        <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i> Editar</a>
+                                        <a class="dropdown-item btn-delete" data-id="' . $value["idPersonal"] . '" data-fullname="' . $value["nombres"] . ' ' . $value["apellidos"] . '" href="javascript:void(0);"><i class="bx bx-trash me-1"></i> Eliminar</a>
                                     </div>
                                 </div>'
             ];
             $cont++;
         }
         json($arrData);
+    }
+    public function deletePersonal()
+    {
+        if (!$_POST) {
+            $data = array(
+                "title" => "Ocurrio un error inesperado",
+                "text" => "No se encontro el metodo POST",
+                "status" => false,
+                "type" => "alert-danger"
+            );
+            json($data);           
+        }
+        $id = strClean($_POST["idPersonal"]);
+        if ($id == "") {
+            $data = array(
+                "title" => "Ocurrio un error inesperado",
+                "text" => "Complete los campos obligatorios",
+                "status" => false,
+                "type" => "alert-danger"
+            );
+            json($data);
+        }
+        $request = $this->model->deletePersonal($id);
+        if ($request) {
+            $data = array(
+                "title" => "Satisfactorio",
+                "text" => "Registro eliminado correctamente",
+                "status" => true,
+                "type" => "success"
+            );
+            json($data);
+        }
     }
     /**
      * Fin funciones de las vistas

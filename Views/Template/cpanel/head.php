@@ -38,7 +38,8 @@
 
     <!-- Icons. Uncomment required icon fonts -->
     <link rel="stylesheet" href="<?= base_url() ?>/Assets/vendor/fonts/boxicons.css" />
-
+    <!--Sweetalert2-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- Core CSS -->
     <link rel="stylesheet" href="<?= base_url() ?>/Assets/vendor/css/core.css" class="template-customizer-core-css" />
     <link rel="stylesheet" href="<?= base_url() ?>/Assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
